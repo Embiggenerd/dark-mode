@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
+/**
+ * Loading is only turned off after completing or result or error, and we return both
+ */
 export const useGetCoinData = () => {
     const [result, setResult] = useState([])
-    const [error, setError] = useState("null")
-    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(true)
 
-    /**
-     * We keep track of loading state, and return error | result
-     */
     useEffect(() => {
         const getCoins = async () => {
             setLoading(true)
